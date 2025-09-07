@@ -1,15 +1,15 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
-import { useClases } from '../src/hooks';
-import { Card, LoadingSpinner, Button } from '../src/components/ui';
-import type { ClaseData } from '../src/types';
+import React from "react";
+import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
+import { useClases } from "../src/hooks";
+import { Card, LoadingSpinner, Button } from "../src/components/ui";
 
 const Container = styled.div`
   min-height: 100vh;
   padding: 1rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
 
   @media (min-width: 640px) {
     padding: 2rem;
@@ -72,7 +72,6 @@ const BackButton = styled(Link)`
   }
 `;
 
-
 const ErrorMessage = styled.div`
   background-color: #fee2e2;
   color: #991b1b;
@@ -100,20 +99,6 @@ const ClaseGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
-`;
-
-const ClaseCard = styled.div`
-  background: white;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e5e7eb;
-  transition: all 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
-  }
 `;
 
 const ClaseTitle = styled.h3`
@@ -175,15 +160,14 @@ const EmptyIcon = styled.div`
   margin-bottom: 1rem;
 `;
 
-
 const AdminView: React.FC = () => {
   const { clases, loading, error, refetch: fetchClases } = useClases();
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('es-ES', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+    return new Date(dateString).toLocaleDateString("es-ES", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     });
   };
 
@@ -191,27 +175,23 @@ const AdminView: React.FC = () => {
     <Container>
       <MainCard>
         <Header>
-          <Title>
-            👩‍🏫 English Teacher Admin Panel
-          </Title>
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            <Button onClick={fetchClases} disabled={loading} variant="secondary">
-              🔄 {loading ? 'Loading...' : 'Refresh'}
+          <Title>👩‍🏫 English Teacher Admin Panel</Title>
+          <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+            <Button
+              onClick={fetchClases}
+              disabled={loading}
+              variant="secondary"
+            >
+              🔄 {loading ? "Loading..." : "Refresh"}
             </Button>
-            <BackButton to="/">
-              ← Back to School
-            </BackButton>
+            <BackButton to="/">← Back to School</BackButton>
           </div>
         </Header>
 
         <Section>
           <SectionTitle>📚 Classes from Strapi</SectionTitle>
-          
-          {error && (
-            <ErrorMessage>
-              Error loading classes: {error}
-            </ErrorMessage>
-          )}
+
+          {error && <ErrorMessage>Error loading classes: {error}</ErrorMessage>}
 
           {loading ? (
             <LoadingSpinner size="large" />
@@ -220,13 +200,18 @@ const AdminView: React.FC = () => {
               <EmptyIcon>📋</EmptyIcon>
               <h3>No Classes Found</h3>
               <p>No classes were found in the Strapi "Clase" collection.</p>
-              <p>Make sure your Strapi instance is running and the API key is correct.</p>
+              <p>
+                Make sure your Strapi instance is running and the API key is
+                correct.
+              </p>
             </EmptyState>
           ) : (
             <ClaseGrid>
               {clases.map((clase) => (
                 <Card key={clase.id} hover shadow>
-                  <ClaseTitle>{clase.attributes?.nombre || `Class ${clase.id}`}</ClaseTitle>
+                  <ClaseTitle>
+                    {clase.attributes?.nombre || `Class ${clase.id}`}
+                  </ClaseTitle>
                   {clase.attributes?.descripcion && (
                     <ClaseDescription>
                       {clase.attributes.descripcion}
@@ -234,26 +219,25 @@ const AdminView: React.FC = () => {
                   )}
                   {clase.content && (
                     <ClaseDescription>
-                      {clase.content.length > 100 
-                        ? `${clase.content.substring(0, 100)}...` 
-                        : clase.content
-                      }
+                      {clase.content.length > 100
+                        ? `${clase.content.substring(0, 100)}...`
+                        : clase.content}
                     </ClaseDescription>
                   )}
-                  
+
                   <ClaseInfo>
                     <InfoItem>
                       <InfoNumber>{clase.id}</InfoNumber>
                       <InfoLabel>Class ID</InfoLabel>
                     </InfoItem>
-                    
+
                     <InfoItem>
                       <InfoNumber>
                         {clase.attributes.estudiantes?.length || 0}
                       </InfoNumber>
                       <InfoLabel>Students</InfoLabel>
                     </InfoItem>
-                    
+
                     <InfoItem>
                       <InfoNumber>
                         {clase.attributes.tareas?.length || 0}
@@ -285,25 +269,35 @@ const AdminView: React.FC = () => {
             <ClaseGrid>
               <Card>
                 <ClaseTitle>Total Classes</ClaseTitle>
-                <div style={{ textAlign: 'center', padding: '1rem 0' }}>
-                  <InfoNumber style={{ fontSize: '2rem' }}>{clases.length}</InfoNumber>
-                </div>
-              </Card>
-              
-              <Card>
-                <ClaseTitle>Total Students</ClaseTitle>
-                <div style={{ textAlign: 'center', padding: '1rem 0' }}>
-                  <InfoNumber style={{ fontSize: '2rem' }}>
-                    {clases.reduce((total, clase) => total + (clase.attributes.estudiantes?.length || 0), 0)}
+                <div style={{ textAlign: "center", padding: "1rem 0" }}>
+                  <InfoNumber style={{ fontSize: "2rem" }}>
+                    {clases.length}
                   </InfoNumber>
                 </div>
               </Card>
-              
+
+              <Card>
+                <ClaseTitle>Total Students</ClaseTitle>
+                <div style={{ textAlign: "center", padding: "1rem 0" }}>
+                  <InfoNumber style={{ fontSize: "2rem" }}>
+                    {clases.reduce(
+                      (total, clase) =>
+                        total + (clase.attributes.estudiantes?.length || 0),
+                      0
+                    )}
+                  </InfoNumber>
+                </div>
+              </Card>
+
               <Card>
                 <ClaseTitle>Total Tasks</ClaseTitle>
-                <div style={{ textAlign: 'center', padding: '1rem 0' }}>
-                  <InfoNumber style={{ fontSize: '2rem' }}>
-                    {clases.reduce((total, clase) => total + (clase.attributes.tareas?.length || 0), 0)}
+                <div style={{ textAlign: "center", padding: "1rem 0" }}>
+                  <InfoNumber style={{ fontSize: "2rem" }}>
+                    {clases.reduce(
+                      (total, clase) =>
+                        total + (clase.attributes.tareas?.length || 0),
+                      0
+                    )}
                   </InfoNumber>
                 </div>
               </Card>

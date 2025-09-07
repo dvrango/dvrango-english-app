@@ -7,6 +7,7 @@ interface CardProps {
   shadow?: boolean;
   hover?: boolean;
   className?: string;
+  onClick?: () => void;
 }
 
 const StyledCard = styled.div<CardProps>`
@@ -41,7 +42,8 @@ export const Card: React.FC<CardProps> = ({
   padding = 'medium',
   shadow = true,
   hover = false,
-  className 
+  className,
+  onClick
 }) => {
   return (
     <StyledCard 
@@ -49,6 +51,7 @@ export const Card: React.FC<CardProps> = ({
       shadow={shadow} 
       hover={hover}
       className={className}
+      onClick={onClick}
     >
       {children}
     </StyledCard>

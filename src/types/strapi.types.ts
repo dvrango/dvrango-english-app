@@ -18,9 +18,11 @@ export interface ClaseData {
   createdAt: string;
   updatedAt: string;
   publishedAt?: string;
+  description?: string; // Top-level description field from Strapi
   attributes: {
     nombre?: string;
     descripcion?: string;
+    description?: string; // Nested description field in attributes
     estudiantes?: EstudianteData[];
     tareas?: TareaData[];
     [key: string]: any; // Allow for flexible field structure

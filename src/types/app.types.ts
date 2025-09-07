@@ -4,6 +4,7 @@ import type { ReactElement } from 'react';
 export enum View {
   Homework,
   Classmates,
+  Classes,
 }
 
 export interface HomeworkItem {
