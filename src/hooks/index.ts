@@ -1,0 +1,1 @@
+export { useClases, useEstudiantes, useTareas, useLoadingState } from './useStrapi';
