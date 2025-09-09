@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sunGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="192" height="192" rx="32" fill="url(#bgGradient)"/>
+  
+  <!-- Sun Icon -->
+  <g transform="translate(96,96)">
+    <!-- Sun rays -->
+    <g fill="url(#sunGradient)" opacity="0.8">
+      <rect x="-2" y="-45" width="4" height="12" rx="2"/>
+      <rect x="-2" y="33" width="4" height="12" rx="2"/>
+      <rect x="33" y="-2" width="12" height="4" rx="2"/>
+      <rect x="-45" y="-2" width="12" height="4" rx="2"/>
+      
+      <rect x="23" y="-32" width="4" height="10" rx="2" transform="rotate(45)"/>
+      <rect x="23" y="22" width="4" height="10" rx="2" transform="rotate(45)"/>
+      <rect x="-27" y="-32" width="4" height="10" rx="2" transform="rotate(-45)"/>
+      <rect x="-27" y="22" width="4" height="10" rx="2" transform="rotate(-45)"/>
+    </g>
+    
+    <!-- Sun circle -->
+    <circle cx="0" cy="0" r="28" fill="url(#sunGradient)" stroke="#ffffff" stroke-width="2"/>
+    
+    <!-- Sun face -->
+    <circle cx="-8" cy="-6" r="3" fill="#ffffff" opacity="0.9"/>
+    <circle cx="8" cy="-6" r="3" fill="#ffffff" opacity="0.9"/>
+    <path d="M -12 8 Q 0 20 12 8" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.9"/>
+  </g>
+  
+  <!-- App name -->
+  <text x="96" y="165" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="600" opacity="0.9">Garden Kids</text>
+</svg>

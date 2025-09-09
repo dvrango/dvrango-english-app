@@ -8,11 +8,28 @@
       href="data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23007aff'/%3E%3Ctext x='32' y='40' font-size='24' text-anchor='middle' fill='white' font-family='Arial'%3EECC%3C/text%3E%3C/svg%3E"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DgoTecHub ECC</title>
+    <title>Garden Kids Corner</title>
     <meta
       name="description"
-      content="A fun and colorful web app for kindergarten children to check their daily homework and see their classmates. Features a playful, garden-themed UI to make learning activities more engaging."
+      content="Una aplicación divertida y colorida para niños de jardín donde pueden chatear en inglés con sus compañeros y obtener feedback automático por IA para mejorar sus mensajes."
     />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#4ade80" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Garden Kids Corner" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="msapplication-TileColor" content="#4ade80" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="/icon-192x192.svg" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/icon-192x192.svg" />
+    <link rel="apple-touch-icon" sizes="512x512" href="/icon-512x512.svg" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -39,5 +56,20 @@
   <body class="bg-gradient-to-br from-green-200 via-cyan-200 to-blue-300">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registrado con éxito: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW falló al registrarse: ', registrationError);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
