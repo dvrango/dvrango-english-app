@@ -11,6 +11,7 @@ import {
 import HomeworkView from "../../components/HomeworkView";
 import ClassmatesView from "../../components/ClassmatesView";
 import ClassesView from "../../components/ClassesView";
+import ChatView from "../../components/ChatView";
 
 const SunIconSvg = styled.svg`
   height: 3rem;
@@ -93,6 +94,12 @@ const StudentApp: React.FC = () => {
           >
             Classmates
           </NavButton>
+          <NavButton
+            onClick={() => setCurrentView(View.Chat)}
+            $isActive={currentView === View.Chat}
+          >
+            Chat
+          </NavButton>
         </Navigation>
 
         <ContentArea>
@@ -100,6 +107,8 @@ const StudentApp: React.FC = () => {
             <HomeworkView />
           ) : currentView === View.Classmates ? (
             <ClassmatesView />
+          ) : currentView === View.Chat ? (
+            <ChatView />
           ) : (
             <ClassesView />
           )}

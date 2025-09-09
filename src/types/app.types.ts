@@ -5,6 +5,7 @@ export enum View {
   Homework,
   Classmates,
   Classes,
+  Chat,
 }
 
 export interface HomeworkItem {
