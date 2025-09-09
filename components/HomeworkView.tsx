@@ -4,9 +4,6 @@ import { HOMEWORK_DATA } from "../constants";
 const HomeworkView: React.FC = () => {
   return (
     <div className="space-y-4">
-      <h2 className="text-3xl font-bold text-center text-emerald-600 mb-6">
-        Homework!
-      </h2>
       <div className="space-y-4">
         {HOMEWORK_DATA.map((item, index) => (
           <div

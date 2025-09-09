@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 export const BackButton = styled(Link)`
   display: inline-flex;
@@ -22,14 +22,11 @@ export const BackButton = styled(Link)`
 
 export const Navigation = styled.nav`
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-
-  @media (min-width: 640px) {
-    gap: 2rem;
-  }
+  justify-content: center;
+  gap: 0.5rem;
+  margin-block: 1rem;
 `;
 
 export const ContentArea = styled.div`
