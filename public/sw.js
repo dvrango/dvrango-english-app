@@ -1,4 +1,4 @@
-const CACHE_NAME = 'garden-kids-corner-v1';
+const CACHE_NAME = 'english-conversation-club-v1';
 const urlsToCache = [
   '/',
   '/static/js/bundle.js',
@@ -81,7 +81,7 @@ self.addEventListener('message', (event) => {
 // Notificaciones push (para futuras funcionalidades)
 self.addEventListener('push', (event) => {
   const options = {
-    body: event.data ? event.data.text() : 'Nueva notificación de Garden Kids Corner',
+    body: event.data ? event.data.text() : 'Nueva notificación de English Conversation Club',
     icon: '/icon-192x192.svg',
     badge: '/icon-192x192.svg',
     vibrate: [100, 50, 100],
@@ -104,7 +104,7 @@ self.addEventListener('push', (event) => {
   };
 
   event.waitUntil(
-    self.registration.showNotification('Garden Kids Corner', options)
+    self.registration.showNotification('English Conversation Club', options)
   );
 });
 

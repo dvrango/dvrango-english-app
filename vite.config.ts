@@ -22,8 +22,8 @@ export default defineConfig(({ mode }) => {
           },
           includeAssets: ['icon-192x192.svg', 'icon-512x512.svg'],
           manifest: {
-            name: 'Garden Kids Corner',
-            short_name: 'Garden Kids',
+             name: 'English Conversation Club',
+             short_name: 'ECC',
             description: 'Una aplicación divertida para niños de jardín donde pueden chatear en inglés con sus compañeros y obtener feedback automático por IA.',
             theme_color: '#4ade80',
             background_color: '#ffffff',

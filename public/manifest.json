@@ -1,6 +1,6 @@
 {
-  "name": "Garden Kids Corner - DgoTecHub ECC",
-  "short_name": "Garden Kids",
+  "name": "English Conversation Club",
+  "short_name": "ECC",
   "description": "Aplicación educativa para estudiantes de inglés con chat interactivo y feedback de IA",
   "start_url": "/",
   "display": "standalone",
