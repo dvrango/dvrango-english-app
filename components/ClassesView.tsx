@@ -141,7 +141,7 @@ const ClassesView: React.FC = () => {
         >
           <ClassHeader>
             <ClassTitle>
-              {clase.attributes?.nombre || `Class ${clase.id}`}
+              {clase?.nombre || `Class ${clase.documentId}`}
             </ClassTitle>
             <ClassMeta>
               <ClassId>ID: {clase.id}</ClassId>

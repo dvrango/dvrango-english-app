@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { View } from "../types";
-import { Button } from "../components/ui";
 import {
   Container,
   MainCard,
@@ -62,8 +61,8 @@ const NavButton = styled.button<{ $isActive: boolean }>`
 `;
 
 const StudentApp: React.FC = () => {
-  const [currentView, setCurrentView] = useState<View>(View.Homework);
-  console.log(currentView === View.Homework);
+  const [currentView, setCurrentView] = useState<View>(View.Classes);
+  const isHomeworkEnabled = false;
   return (
     <Container>
       <MainCard>
@@ -73,23 +72,26 @@ const StudentApp: React.FC = () => {
         </Header>
 
         <Navigation>
+          {isHomeworkEnabled && (
+            <NavButton
+              onClick={() => setCurrentView(View.Homework)}
+              $isActive={currentView === View.Homework}
+            >
+              Homework
+            </NavButton>
+          )}
+
           <NavButton
-            onClick={() => setCurrentView(View.Homework)}
-            $isActive={currentView === View.Homework}
+            onClick={() => setCurrentView(View.Classes)}
+            $isActive={currentView === View.Classes}
           >
-            Homework
+            Classes
           </NavButton>
           <NavButton
             onClick={() => setCurrentView(View.Classmates)}
             $isActive={currentView === View.Classmates}
           >
             Classmates
-          </NavButton>
-          <NavButton
-            onClick={() => setCurrentView(View.Classes)}
-            $isActive={currentView === View.Classes}
-          >
-            Classes
           </NavButton>
         </Navigation>
 

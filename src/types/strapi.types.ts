@@ -13,6 +13,7 @@ export interface StrapiResponse<T> {
 
 export interface ClaseData {
   id: number;
+  nombre?: string;
   documentId?: string;
   content?: string;
   createdAt: string;

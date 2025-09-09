@@ -56,11 +56,7 @@ export const strapiService = {
           console.warn(`⚠️  Class ${clase.id} has no attributes`);
           clase.attributes = {};
         }
-        // Ensure nombre exists or provide a fallback
-        if (!clase.attributes.nombre) {
-          console.warn(`⚠️  Class ${clase.id} has no nombre field`);
-          clase.attributes.nombre = `Class ${clase.id}`;
-        }
+
         // Map description from attributes if present
         clase.description =
           clase.description || clase.attributes.descripcion || "";
