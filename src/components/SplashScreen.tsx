@@ -161,8 +161,8 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
     <Container>
       <LogoContainer>
         <SunIcon>☀️</SunIcon>
-        <AppTitle>Garden Kids Corner</AppTitle>
-        <Subtitle>DgoTecHub ECC</Subtitle>
+        <AppTitle>English Conversation Club</AppTitle>
+        <Subtitle>ECC</Subtitle>
       </LogoContainer>
       
       <LoadingContainer>

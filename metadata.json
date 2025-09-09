@@ -1,5 +1,5 @@
 {
-  "name": "DgoTecHub ECC",
-  "description": "A fun and colorful web app for kindergarten children to check their daily homework and see their classmates. Features a playful, garden-themed UI to make learning activities more engaging.",
+  "name": "English Conversation Club",
+  "description": "Una aplicación divertida y colorida para niños de jardín donde pueden chatear en inglés con sus compañeros y obtener feedback automático por IA para mejorar sus mensajes.",
   "icon": "data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23007aff'/%3E%3Ctext x='32' y='40' font-size='24' text-anchor='middle' fill='white' font-family='Arial'%3EECC%3C/text%3E%3C/svg%3E"
 }
